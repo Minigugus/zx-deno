@@ -32,7 +32,8 @@ function substitute(arg) {
   return arg
 }
 
-let decoder = new TextDecoder();
+let stdout_decoder = new TextDecoder();
+let stderr_decoder = new TextDecoder();
 
 export async function $(pieces, ...args) {
   let __from = (new Error().stack.split('at ')[2]).trim()
@@ -59,7 +60,7 @@ export async function $(pieces, ...args) {
   let stdout = '', stderr = '', combined = ''
   let stdoutPromise = (async function() {
     for await (const chunk of iter(child.stdout)) {
-      const decoded = decoder.decode(chunk)
+      const decoded = stdout_decoder.decode(chunk, {stream: true})
       if ($.verbose) await Deno.stdout.write(chunk)
       stdout += decoded
       combined += decoded
@@ -68,7 +69,7 @@ export async function $(pieces, ...args) {
   })()
   let stderrPromise = (async function() {
     for await (const chunk of iter(child.stderr)) {
-      const decoded = decoder.decode(chunk)
+      const decoded = stderr_decoder.decode(chunk, {stream: true})
       if ($.verbose) await Deno.stderr.write(chunk)
       stderr += decoded
       combined += decoded
@@ -173,5 +174,6 @@ async function exec(cmd) {
   const stdout = await stdoutPromise
   proc.stdout.close()
   proc.close()
+  let decoder = new TextDecoder()
   return decoder.decode(stdout)
 }
