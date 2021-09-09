@@ -14,10 +14,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {readAll} from 'https://deno.land/std@0.95.0/io/util.ts'
-import {resolve} from 'https://deno.land/std@0.95.0/path/mod.ts'
-import * as fs from 'https://deno.land/std@0.95.0/node/fs.ts';
-import * as os from 'https://deno.land/std@0.95.0/node/os.ts';
+import {readAll} from 'https://deno.land/std@0.106.0/io/util.ts'
+import {resolve} from 'https://deno.land/std@0.106.0/path/mod.ts'
+import * as fs from 'https://deno.land/std@0.106.0/node/fs.ts';
+import * as os from 'https://deno.land/std@0.106.0/node/os.ts';
 import {$, cd, question, colors, fetch, ProcessOutput} from './index.mjs'
 import {version} from './version.js'
 

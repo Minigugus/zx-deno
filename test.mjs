@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {strict as assert} from 'https://deno.land/std@0.95.0/node/assert.ts'
+import {strict as assert} from 'https://deno.land/std@0.106.0/node/assert.ts'
 
 {
   let hello = await $`echo Error >&2; echo Hello`

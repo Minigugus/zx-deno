@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {readAll, iter} from 'https://deno.land/std@0.95.0/io/util.ts'
-import {existsSync} from 'https://deno.land/std@0.95.0/fs/exists.ts'
-import * as colors from 'https://deno.land/std@0.95.0/fmt/colors.ts'
+import {readAll, iter} from 'https://deno.land/std@0.106.0/io/util.ts'
+import {existsSync} from 'https://deno.land/std@0.106.0/fs/exists.ts'
+import * as colors from 'https://deno.land/std@0.106.0/fmt/colors.ts'
 import {singleArgument as escape} from 'https://deno.land/x/shell_escape@1.0.0/index.ts'
 
 export {colors}
